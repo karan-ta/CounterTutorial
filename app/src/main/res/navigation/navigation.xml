@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/counterDetailFragment">
+
+    <fragment
+        android:id="@+id/counterDetailFragment"
+        android:name="com.kodeplay.habittracker2.CounterDetailFragment"
+        android:label="fragment_counter_detail"
+        tools:layout="@layout/fragment_counter_detail" />
+</navigation>
