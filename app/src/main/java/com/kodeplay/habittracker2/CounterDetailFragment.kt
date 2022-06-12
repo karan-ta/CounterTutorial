@@ -26,14 +26,22 @@ class CounterDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentCounterDetailBinding>(inflater,R.layout.fragment_counter_detail,container,false)
-        counterDetailViewModel = ViewModelProvider(this).get (CounterDetailViewModel::class.java)
+        val application = requireNotNull(this.activity).application
+        val counterViewModelFactory = CounterViewModelFactory(application);
+        counterDetailViewModel = ViewModelProvider(this,counterViewModelFactory).get (CounterDetailViewModel::class.java)
         counterDetailViewModel.counterData.observe (viewLifecycleOwner,Observer {
         newCounterdata ->
             binding.counterDataText.text = newCounterdata.toString ()
         })
+
         counterDetailViewModel.status.observe (viewLifecycleOwner,Observer {
                 newStatus ->
             binding.apiStatusText.text = newStatus.toString ()
+        })
+
+        counterDetailViewModel.counterDatabaseData.observe (viewLifecycleOwner,Observer {
+                newCounterDatabaseData ->
+            binding.counterDatabaseDataText.text = newCounterDatabaseData.toString ()
         })
         binding.counterUpdateButton.setOnClickListener { counterDetailViewModel.updateCount() }
         return binding.root
