@@ -34,15 +34,15 @@ class CounterDetailFragment : Fragment() {
             binding.counterDataText.text = newCounterdata.toString ()
         })
 
-        counterDetailViewModel.status.observe (viewLifecycleOwner,Observer {
-                newStatus ->
-            binding.apiStatusText.text = newStatus.toString ()
-        })
+//        counterDetailViewModel.status.observe (viewLifecycleOwner,Observer {
+//                newStatus ->
+//            binding.apiStatusText.text = newStatus.toString ()
+//        })
 
-        counterDetailViewModel.counterDatabaseData.observe (viewLifecycleOwner,Observer {
-                newCounterDatabaseData ->
-            binding.counterDatabaseDataText.text = newCounterDatabaseData.toString ()
-        })
+//        counterDetailViewModel.counterDatabaseData.observe (viewLifecycleOwner,Observer {
+//                newCounterDatabaseData ->
+//            binding.counterDatabaseDataText.text = newCounterDatabaseData.toString ()
+//        })
         binding.counterUpdateButton.setOnClickListener { counterDetailViewModel.updateCount() }
         return binding.root
     }

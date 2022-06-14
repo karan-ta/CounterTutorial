@@ -4,9 +4,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "counter_data_table")
-data class CounterDatabaseEntity (
+data class CounterDatabaseEntity(
     @PrimaryKey()
-    var id: Int = 1,
+    var id: Int? = 1,
     @ColumnInfo(name = "counter_data")
     var counterData: Int = -1,
         )
